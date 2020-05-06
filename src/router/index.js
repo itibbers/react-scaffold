@@ -3,22 +3,43 @@ import { Route, Switch } from 'react-router-dom'
 
 // import { lazy } from '@/utils/asyncComponent'
 import loadable from '@loadable/component'
-import Home from 'pages/home'
-// const About = lazy('pages/about')
-// const Counter = lazy('pages/counter')
-const About = loadable(() => import('pages/about'))
-const Counter = loadable(() => import('pages/counter'))
-const UserInfo = loadable(() => import('pages/userInfo'))
-const NotFound = loadable(() => import('pages/notfound'))
 
-export default function getRouter() {
+export const routes = [
+  {
+    path: '/',
+    title: '首页',
+    exact: true,
+    component: loadable(() => import('pages/home')),
+  },
+  {
+    path: '/query',
+    title: '列表页',
+    component: loadable(() => import('pages/query')),
+  },
+  {
+    path: '/edit',
+    title: '编辑页',
+    component: loadable(() => import('pages/edit')),
+  },
+  {
+    title: '404',
+    component: loadable(() => import('pages/notfound')),
+  },
+]
+
+export default function RouterView() {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/counter" component={Counter} />
-      <Route path="/userinfo" component={UserInfo} />
-      <Route component={NotFound} />
+      {routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            exact={route.exact}
+            path={route.path}
+            component={route.component}
+          />
+        )
+      })}
     </Switch>
   )
 }

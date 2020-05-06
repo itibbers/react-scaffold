@@ -10,7 +10,7 @@ const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 module.exports = {
   entry: {
     app: join(__dirname, '../src/index.js'),
-    vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux'],
+    bundle: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux'],
   },
   output: {
     path: join(__dirname, '../dist'),
@@ -75,4 +75,9 @@ module.exports = {
     }),
     new AntdDayjsWebpackPlugin(),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 }

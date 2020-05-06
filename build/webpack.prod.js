@@ -13,9 +13,4 @@ module.exports = merge(common, {
     new OptimizeCssAssetsPlugin(),
     // new BundleAnalyzerPlugin(),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
 })

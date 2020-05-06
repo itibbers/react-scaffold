@@ -1,0 +1,9 @@
+.action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+
+.action-bar > * {
+  margin: 5px;
+}

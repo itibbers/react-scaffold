@@ -1,0 +1,471 @@
+import Mock from 'mockjs'
+
+Mock.mock('/api/user', {
+  errno: 0,
+  data: {
+    name: '@cname',
+    intro: '@cword(20)',
+  },
+})
+
+Mock.mock('/api/menus', {
+  errno: 0,
+  data: [
+    {
+      id: '10000',
+      title: '菜单',
+      children: [
+        {
+          id: '10001',
+          title: '子菜单1',
+          link: 'query?id=1',
+        },
+        {
+          id: '10002',
+          title: '子菜单2',
+          link: 'query?id=2',
+        },
+      ],
+    },
+    {
+      id: '10003',
+      title: '菜单3',
+      link: 'query?id=3',
+    },
+  ],
+})
+
+Mock.mock(/\/api\/menu.*/, {
+  errno: 0,
+  data: {
+    name: '@cword(6)',
+    schema: [
+      {
+        field: 'name',
+        type: 'Text',
+      },
+      {
+        field: 'desc',
+        type: 'Input',
+      },
+    ],
+    actions: [
+      {
+        name: 'UpdateData',
+        type: 'block',
+        conf: {
+          title: '更新数据',
+        },
+      },
+      {
+        name: 'Ajax',
+        type: 'block',
+        conf: {
+          title: '批量修改权重',
+        },
+      },
+      {
+        name: 'Ajax',
+        type: 'block',
+        conf: {
+          title: '批量审核通过',
+        },
+      },
+      {
+        name: 'ExportXlsx',
+        type: 'block',
+      },
+      {
+        name: 'Ajax',
+        type: 'inline',
+        conf: {
+          title: '审核',
+        },
+      },
+    ],
+    listConf: [],
+    editConf: [],
+  },
+})
+
+Mock.mock(/\/api\/query\/.*/, {
+  errno: 0,
+  data: {
+    results: [
+      {
+        gender: 'female',
+        name: { title: 'Miss', first: 'غزل', last: 'رضایی' },
+        location: {
+          street: { number: 6317, name: 'میرزای شیرازی' },
+          city: 'ایلام',
+          state: 'خراسان شمالی',
+          country: 'Iran',
+          postcode: 44728,
+          coordinates: { latitude: '29.5451', longitude: '108.4885' },
+          timezone: {
+            offset: '+7:00',
+            description: 'Bangkok, Hanoi, Jakarta',
+          },
+        },
+        email: 'gzl.rdyy@example.com',
+        login: {
+          uuid: '823dac25-676a-44f0-90d3-8a48ac69c166',
+          username: 'blueleopard708',
+          password: 'sinbad',
+          salt: 'DxPp8bgc',
+          md5: 'af4511cd547a5f16b6bd3d1778d5b328',
+          sha1: '0e626f0789128fe373aee1663df4e29ab971254b',
+          sha256:
+            '0d033fe99ebc3c61b56bbf6b2a870b908443b8070be8a09a3f6db148982d403d',
+        },
+        dob: { date: '1958-05-11T02:24:51.073Z', age: 62 },
+        registered: { date: '2011-05-20T21:40:11.195Z', age: 9 },
+        phone: '073-57044259',
+        cell: '0939-213-4393',
+        id: { name: '', value: null },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/women/64.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/women/64.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/64.jpg',
+        },
+        nat: 'IR',
+      },
+      {
+        gender: 'male',
+        name: { title: 'Mr', first: 'Clinton', last: 'Lopez' },
+        location: {
+          street: { number: 4289, name: 'Queens Road' },
+          city: 'Canterbury',
+          state: 'Lincolnshire',
+          country: 'United Kingdom',
+          postcode: 'PY1 4AF',
+          coordinates: { latitude: '-49.7013', longitude: '3.5227' },
+          timezone: {
+            offset: '0:00',
+            description: 'Western Europe Time, London, Lisbon, Casablanca',
+          },
+        },
+        email: 'clinton.lopez@example.com',
+        login: {
+          uuid: 'e5f32566-e590-4287-aa29-d1315994f929',
+          username: 'bluemeercat701',
+          password: 'mnbvcx',
+          salt: 'fleuJMr9',
+          md5: 'd51f1843043a73ff123a733497d400ab',
+          sha1: 'caed0227a6ef574d112bc064b18e4b5edecdd36a',
+          sha256:
+            'f7fbfe26184cd03e82bc178b99678e3d0821741f125f5ba95d1c2b47662d3b12',
+        },
+        dob: { date: '1986-10-31T07:50:02.514Z', age: 34 },
+        registered: { date: '2003-07-20T18:52:10.752Z', age: 17 },
+        phone: '020 7615 1307',
+        cell: '0758-258-341',
+        id: { name: 'NINO', value: 'PR 68 24 79 X' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/men/89.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/89.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/89.jpg',
+        },
+        nat: 'GB',
+      },
+      {
+        gender: 'male',
+        name: { title: 'Mr', first: 'Rubim', last: 'da Rosa' },
+        location: {
+          street: { number: 2385, name: 'Rua Paraíba ' },
+          city: 'Ribeirão Pires',
+          state: 'Amazonas',
+          country: 'Brazil',
+          postcode: 94783,
+          coordinates: { latitude: '30.2130', longitude: '100.6984' },
+          timezone: {
+            offset: '+4:00',
+            description: 'Abu Dhabi, Muscat, Baku, Tbilisi',
+          },
+        },
+        email: 'rubim.darosa@example.com',
+        login: {
+          uuid: '1e672761-2f14-4649-b81b-f50031fdf7e5',
+          username: 'heavykoala801',
+          password: 'fortune',
+          salt: 'mpOItgnq',
+          md5: '047d3177a09d6d1c18132b68738ed8d4',
+          sha1: '171f0c65055a319fe537bce01e346c95c065c1b8',
+          sha256:
+            '014fa8cf919115f1868bb76f9ece1a40d4338a50c620467da95f52e4c73c72ad',
+        },
+        dob: { date: '1972-04-25T05:28:07.325Z', age: 48 },
+        registered: { date: '2018-10-03T23:27:25.246Z', age: 2 },
+        phone: '(49) 8336-8140',
+        cell: '(62) 4795-7221',
+        id: { name: '', value: null },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/men/18.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/18.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/18.jpg',
+        },
+        nat: 'BR',
+      },
+      {
+        gender: 'female',
+        name: { title: 'Mrs', first: 'Soledad', last: 'Rubio' },
+        location: {
+          street: { number: 5152, name: 'Avenida de Burgos' },
+          city: 'Barcelona',
+          state: 'Canarias',
+          country: 'Spain',
+          postcode: 42628,
+          coordinates: { latitude: '56.0495', longitude: '175.9608' },
+          timezone: { offset: '-10:00', description: 'Hawaii' },
+        },
+        email: 'soledad.rubio@example.com',
+        login: {
+          uuid: '7184380b-6486-4bb6-a879-88099f1b40a6',
+          username: 'brownzebra501',
+          password: 'bigpimp',
+          salt: 'Tx8G1HaO',
+          md5: 'e1730cf3f328647ed550d945eb03f904',
+          sha1: '9bceabef6a760c3fa53b36d49499ad5d8550f0fd',
+          sha256:
+            '1b34db530671caab3fbb0331f6a840056381ddd9b9ae558d7b48aa3ca13909fd',
+        },
+        dob: { date: '1972-01-16T05:11:20.762Z', age: 48 },
+        registered: { date: '2003-08-03T14:40:52.870Z', age: 17 },
+        phone: '908-609-231',
+        cell: '629-979-837',
+        id: { name: 'DNI', value: '34123227-F' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/women/34.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/women/34.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/34.jpg',
+        },
+        nat: 'ES',
+      },
+      {
+        gender: 'male',
+        name: { title: 'Mr', first: 'Juan', last: 'Lane' },
+        location: {
+          street: { number: 4127, name: 'Photinia Ave' },
+          city: 'Addison',
+          state: 'Rhode Island',
+          country: 'United States',
+          postcode: 38906,
+          coordinates: { latitude: '20.8459', longitude: '-6.2057' },
+          timezone: {
+            offset: '+9:00',
+            description: 'Tokyo, Seoul, Osaka, Sapporo, Yakutsk',
+          },
+        },
+        email: 'juan.lane@example.com',
+        login: {
+          uuid: '948c92fc-db41-4210-9eff-1003d8ad4f0f',
+          username: 'crazylion349',
+          password: 'friday',
+          salt: 'mhpFrFLS',
+          md5: '3b14dc8d830488248b5b1dc2ffb15d1c',
+          sha1: '5b2c0dd14a8815b8e7347b708f4a7ce72750c6bb',
+          sha256:
+            '54384deae23fa67a3db55656ba3bc30ae27f8293624cdc34e933336290491107',
+        },
+        dob: { date: '1952-03-21T20:15:49.745Z', age: 68 },
+        registered: { date: '2019-02-16T05:07:19.631Z', age: 1 },
+        phone: '(088)-799-1559',
+        cell: '(285)-031-9268',
+        id: { name: 'SSN', value: '729-02-9818' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/men/57.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/57.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/57.jpg',
+        },
+        nat: 'US',
+      },
+      {
+        gender: 'male',
+        name: { title: 'Mr', first: 'Johnny', last: 'Brooks' },
+        location: {
+          street: { number: 5033, name: 'Spring Hill Rd' },
+          city: 'Hobart',
+          state: 'New South Wales',
+          country: 'Australia',
+          postcode: 2095,
+          coordinates: { latitude: '-77.9347', longitude: '-163.4409' },
+          timezone: { offset: '-9:00', description: 'Alaska' },
+        },
+        email: 'johnny.brooks@example.com',
+        login: {
+          uuid: '8971ca19-151c-4f8d-b8d6-62889dc9f160',
+          username: 'purplefish484',
+          password: 'fairlane',
+          salt: '0YapvpWw',
+          md5: 'a95a370a024d7bd1dbf742c24898c126',
+          sha1: '1f54e3a3b38eaa921012d1ec944ead1fbd415680',
+          sha256:
+            '72dabd3858410d9783503598984d5782ff5deb3b22bb7efdae3205299baaa8f7',
+        },
+        dob: { date: '1954-09-22T12:26:00.549Z', age: 66 },
+        registered: { date: '2011-01-20T09:04:13.859Z', age: 9 },
+        phone: '03-2412-5822',
+        cell: '0417-784-171',
+        id: { name: 'TFN', value: '451521665' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/men/79.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/79.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/79.jpg',
+        },
+        nat: 'AU',
+      },
+      {
+        gender: 'female',
+        name: { title: 'Mrs', first: 'Aada', last: 'Lehto' },
+        location: {
+          street: { number: 1092, name: 'Mechelininkatu' },
+          city: 'Kiuruvesi',
+          state: 'Southern Ostrobothnia',
+          country: 'Finland',
+          postcode: 59901,
+          coordinates: { latitude: '-53.9869', longitude: '150.8925' },
+          timezone: { offset: '+4:30', description: 'Kabul' },
+        },
+        email: 'aada.lehto@example.com',
+        login: {
+          uuid: '5cc7bba0-d991-4442-9b21-1b433539aad4',
+          username: 'yellowladybug754',
+          password: 'hydro',
+          salt: 'b4IWmWia',
+          md5: '65fae82670032a5ec2013b55b754cd0e',
+          sha1: 'dc9fc74596fb37ee915eb2161684cd9227e14b06',
+          sha256:
+            'abfa813aaaa75f3c8e3fc7ffd74556307478ed83353dc53f277e11e318f5fd2d',
+        },
+        dob: { date: '1996-07-06T13:30:53.830Z', age: 24 },
+        registered: { date: '2003-08-27T12:37:03.801Z', age: 17 },
+        phone: '03-863-166',
+        cell: '047-460-25-17',
+        id: { name: 'HETU', value: 'NaNNA204undefined' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/women/9.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/women/9.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/9.jpg',
+        },
+        nat: 'FI',
+      },
+      {
+        gender: 'female',
+        name: { title: 'Mrs', first: 'Deborah', last: 'Davies' },
+        location: {
+          street: { number: 2702, name: 'Mill Road' },
+          city: 'Leicester',
+          state: 'County Armagh',
+          country: 'United Kingdom',
+          postcode: 'P2 8AJ',
+          coordinates: { latitude: '-10.5833', longitude: '92.7982' },
+          timezone: {
+            offset: '-1:00',
+            description: 'Azores, Cape Verde Islands',
+          },
+        },
+        email: 'deborah.davies@example.com',
+        login: {
+          uuid: 'fe15d5a3-7b1f-434a-8513-4576c8f37fd5',
+          username: 'happylion976',
+          password: 'plane',
+          salt: 'J1jvVR8X',
+          md5: '9074be6b576edf9ff4047b987b7395c0',
+          sha1: '15ce8cecb40c979cb6b6ef6d97c6f591b5de430f',
+          sha256:
+            'f6092ca3b67addf1c49af7a09c5341f0a40f047c0a0cb063ca89161864f7f2eb',
+        },
+        dob: { date: '1989-01-19T09:23:56.352Z', age: 31 },
+        registered: { date: '2012-10-05T08:36:05.238Z', age: 8 },
+        phone: '015396 27556',
+        cell: '0797-131-376',
+        id: { name: 'NINO', value: 'OZ 26 27 15 G' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/women/80.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/women/80.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/80.jpg',
+        },
+        nat: 'GB',
+      },
+      {
+        gender: 'male',
+        name: { title: 'Mr', first: 'Flynn', last: 'Wright' },
+        location: {
+          street: { number: 7959, name: 'Customs Street' },
+          city: 'Nelson',
+          state: 'Southland',
+          country: 'New Zealand',
+          postcode: 20436,
+          coordinates: { latitude: '-33.1645', longitude: '64.6764' },
+          timezone: {
+            offset: '+8:00',
+            description: 'Beijing, Perth, Singapore, Hong Kong',
+          },
+        },
+        email: 'flynn.wright@example.com',
+        login: {
+          uuid: 'd160a36c-f8c3-4426-aed5-181125b6f8d8',
+          username: 'greenlion332',
+          password: 'just4me',
+          salt: 'ruZmgYin',
+          md5: '9d9076c4a34787dabb8729976a3cca6b',
+          sha1: '74fe1e613b62cb2415201a5342c464c0764490ea',
+          sha256:
+            'd142f9d44bafd8aa8d61eb07493cb80430defb768286ceb09e7c7e22c2b7fe55',
+        },
+        dob: { date: '1977-12-09T03:18:26.716Z', age: 43 },
+        registered: { date: '2004-04-03T16:09:08.266Z', age: 16 },
+        phone: '(138)-746-9952',
+        cell: '(639)-026-2200',
+        id: { name: '', value: null },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/men/43.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/men/43.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/43.jpg',
+        },
+        nat: 'NZ',
+      },
+      {
+        gender: 'female',
+        name: { title: 'Mrs', first: 'Lisa', last: 'Fuller' },
+        location: {
+          street: { number: 4444, name: 'Country Club Rd' },
+          city: 'New Haven',
+          state: 'Georgia',
+          country: 'United States',
+          postcode: 39699,
+          coordinates: { latitude: '-89.6144', longitude: '56.8333' },
+          timezone: { offset: '+5:45', description: 'Kathmandu' },
+        },
+        email: 'lisa.fuller@example.com',
+        login: {
+          uuid: '24f78150-d90f-4352-8fec-fd5b5724434b',
+          username: 'orangekoala696',
+          password: 'slinky',
+          salt: '8jvHErLC',
+          md5: 'dc2b02fa1a44dc1481d7381244d0855d',
+          sha1: 'ae9e9a6603575d6f4e0ee47b017b7c70f13301b2',
+          sha256:
+            '42f0a6f461c68918f3ed80a7b0974765b3b12871558e6cfdbdd000d321c0c87e',
+        },
+        dob: { date: '1986-07-29T01:25:45.060Z', age: 34 },
+        registered: { date: '2003-04-15T08:35:49.184Z', age: 17 },
+        phone: '(229)-654-1576',
+        cell: '(523)-557-0978',
+        id: { name: 'SSN', value: '141-59-5478' },
+        picture: {
+          large: 'https://randomuser.me/api/portraits/women/11.jpg',
+          medium: 'https://randomuser.me/api/portraits/med/women/11.jpg',
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/11.jpg',
+        },
+        nat: 'US',
+      },
+    ],
+    info: {
+      seed: 'c04aa10e8b00cf1a',
+      results: 10,
+      page: 1,
+      version: '1.3',
+    },
+  },
+})

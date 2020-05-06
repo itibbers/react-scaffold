@@ -1,14 +1,13 @@
-import axios from 'axios'
+import { getUserInfo as getUserInfoApi } from '@/api'
 
 export const GET_USER_INFO = 'userInfo/GET_USER_INFO'
 
 export function getUserInfo() {
   return (dispatch) => {
-    axios.post('/api/user').then((res) => {
-      let data = JSON.parse(res.request.responseText)
+    getUserInfoApi().then((res) => {
       dispatch({
         type: GET_USER_INFO,
-        payload: data,
+        payload: res.data,
       })
     })
   }
