@@ -44,7 +44,7 @@ service.interceptors.response.use(
   (error) => {
     console.error('Network Error', error)
     return Promise.reject(error)
-  }
+  },
 )
 
 export default service

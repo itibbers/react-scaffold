@@ -5,7 +5,7 @@ import userInfo from 'reducers/userInfo'
 
 const store = createStore(
   combineReducers({ counter, userInfo }),
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware),
 )
 
 export default store

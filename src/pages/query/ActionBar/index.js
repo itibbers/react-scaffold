@@ -9,7 +9,7 @@ export default function ActionBar({ actions }) {
         .filter((action) => action.type === 'block')
         .map((action, index) => {
           const ActionButton = loadable(() =>
-            import(`@/components/actions/${action.name}`)
+            import(`@/components/actions/${action.name}`),
           )
           return (
             <ActionButton
@@ -17,7 +17,8 @@ export default function ActionBar({ actions }) {
               type={action.type}
               conf={action.conf || {}}
             >
-              {action.name}>
+              {action.name}
+              {'>'}
             </ActionButton>
           )
         })}

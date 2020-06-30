@@ -24,7 +24,7 @@ function baseMenuItem(item) {
 
 export default class SideBar extends React.PureComponent {
   state = {
-    menus: []
+    menus: [],
   }
 
   componentDidMount() {

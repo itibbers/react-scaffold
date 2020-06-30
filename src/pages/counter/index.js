@@ -27,5 +27,5 @@ export default connect(
     reset: () => {
       dispatch(reset())
     },
-  })
+  }),
 )(Counter)
