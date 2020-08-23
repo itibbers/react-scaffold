@@ -3,6 +3,5 @@
   "tabWidth": 2,
   "semi": false,
   "singleQuote": true,
-  "trailingComma": "all",
-  "eslintIntegration": true
+  "trailingComma": "all"
 }
