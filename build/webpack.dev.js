@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
-  plugins: [new BundleAnalyzerPlugin()],
+  plugins: [process.ANALYZE && new BundleAnalyzerPlugin()].filter(Boolean),
   devServer: {
     contentBase: join(__dirname, '../dist'),
     host: '0.0.0.0',
